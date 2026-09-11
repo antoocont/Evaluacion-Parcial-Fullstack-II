@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro Usuario</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bodyregistro">
+    <form class="formularioregistroborde" id="formularioRegistro" action="index.html">
+    <p class="tituloregistro">Registro SaludTotal:</p>  
+
+
+    <div class="camporegistro">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" placeholder="Ingresa tu nombre">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="apellidopaterno">Apellido Paterno :</label>
+    <input type="text" id="apellidopaterno" placeholder="Ingresa tu Apellido">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="apellidomaterno">Apellido Materno:</label>
+    <input type="text" id="apellidomaterno" placeholder="Ingresa tu Apellido">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="fechanacimiento">Fecha de Nacimiento:</label>
+    <input type="date" id="fechanacimiento" name="fnacimiento">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="rut">RUT:</label>
+    <input type="text" id="rut" placeholder="12.345.678-9">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="nrodocumento">Número de Documento:</label>
+    <input type="text" id="nrodocumento" placeholder="Ingresa tu número de documento">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="tiposeguro">Seguro Medico:</label>
+
+
+    <select id="tiposeguro">
+    <option value="selecciona">Selecciona</option>
+    <option value="fonasa">Fonasa</option>
+    <option value="isapre">Isapre</option>
+    </select>
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="genero">Genero:</label>
+
+
+    <select id="genero">
+    <option value="selecciona">Selecciona</option>
+    <option value="masculino">Masculino</option>
+    <option value="femenino">Femenino</option>
+    <option value="otro">Otro</option>
+    </select>
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="genero">Genero:</label>
+
+
+    <select id="genero">
+    <option value="selecciona">Selecciona</option>
+    <option value="masculino">Masculino</option>
+    <option value="femenino">Femenino</option>
+    <option value="otro">Otro</option>
+    </select>
+    </div>
+
+
+
+
+    <div class="camporegistro">
+    <label for="region">Region:</label>
+
+
+    <select name="regiones" id="region">
+    <option value="selecciona">Selecciona</option>
+    <option value="arica y parinacota">Arica y Parinacota</option>
+    <option value="tarapaca">Tarapacá</option>
+    <option value="antofagasta">Antofagasta</option>
+    <option value="atacama">Atacama</option>
+    <option value="coquimbo">Coquimbo</option>
+    <option value="valparaiso">Valparaiso</option>
+    <option value="libertador General Bernardo O'Higgins">Libertador General Bernardo O'Higgins</option>
+    <option value="maule">Maule</option>
+    <option value="ñuble">Ñuble</option>
+    <option value="biobio">BioBío</option>
+    <option value="la araucania">La Araucania</option>
+    <option value="los rios">Los Ríos</option>
+    <option value="los lagos">Los Lagos</option>
+    <option value="aysen del General Carlos Ibáñez del Campo">Aysén del General Carlos Ibáñez del Campo</option>
+    <option value="magallanes y de la Antártica Chilena">Magallanes y de la Antártica Chilena</option>
+    <option value="metropolitana de santiago">Metropolitana de Santiago</option>
+    </select>
+    </div>
+   
+    <div class="camporegistro">
+    <label for="direccion">Direccion:</label>
+    <input type="text" id="direccion" placeholder="calle, numero, depto">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="email">Correo Electronico:</label>
+    <input type="email" id="email" placeholder="ejemplo@mail.com">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="telefono">Telefono:</label>
+    <input type="text" id="telefono" placeholder="+569 12345678">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="password">Contraseña:</label>
+    <input type="password" id="password">
+    </div>
+
+
+    <div class="camporegistro">
+    <label for="confirmarpassword">Confirmar Contraseña:</label>
+    <input type="password" id="confirmarpassword">
+    </div>
+
+
+    <div class="campo-checkbox">
+       <label>
+              <input type="checkbox" name="terminos" required>
+              Acepto los términos y condiciones y Políticas de Privacidad.
+       </label>
+       <label>
+              <input type="checkbox" id="ofertas">
+              Deseo recibir novedades sobre convenios, promociones y servicios de salud.
+       </label>
+    </div>  
+
+
+    <button type="submit" class="enviar">REGÍSTRATE</button>
+</form>
+</body>
+</html>
