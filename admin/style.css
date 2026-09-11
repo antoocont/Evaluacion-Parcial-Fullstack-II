@@ -1,0 +1,102 @@
+/* FONDO Y CENTRADO DE LA PÁGINA */
+.body-admin-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*  LA CAJA CELESTE/GRIS */
+.tarjeta-login-admin {
+    background-color: #cbd8e1;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 50px;
+    border-radius: 25px; /* Bordes bien redondos como en la foto */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.titulo-admin {
+    text-align: center;
+    color: #003a55;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* LOS CAMPOS */
+.grupo-input-admin {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.grupo-input-admin label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e3a5f; /* Azul/gris oscuro para el label */
+    margin-bottom: 8px;
+}
+
+.grupo-input-admin input {
+    padding: 12px 15px;
+    border: none; /* Sin borde como en la foto */
+    border-radius: 10px; /* Bordes redondeados del input */
+    font-size: 14px;
+    font-family: inherit;
+    color: #333;
+    outline: none;
+}
+
+.grupo-input-admin input:focus {
+    box-shadow: 0 0 0 2px #e04a00; 
+}
+
+/* EL BOTÓN NARANJA */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-ingresar-admin {
+    background-color: #e65100; /* Naranja intenso de la foto */
+    color: white;
+    border: none;
+    padding: 12px 40px; /* Alargado */
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px; /* Forma de píldora */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-ingresar-admin:hover {
+    background-color: #cc4800;
+}
+
+.btn-ingresar-admin:active {
+    transform: scale(0.95);
+}
+
+/* Clases para el JS (Validaciones) */
+.input-error {
+    border: 2px solid red !important;
+}
+
+.texto-error {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: none;
+}
+
+.texto-error.activo {
+    display: block;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - Administrador</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body class="body-admin-login">
+
+    <div class="tarjeta-login-admin">
+        <h2 class="titulo-admin">Panel Administrador</h2>
+        
+        <form id="formAdminLogin" action="index_admin.html">
+            <div class="grupo-input-admin">
+                <label for="correoAdmin">Correo:</label>
+                <input type="text" id="correoAdmin" name="correoAdmin" placeholder="Ej: admin@duoc.cl">
+                <span id="error-correoAdmin" class="texto-error"></span> 
+            </div>
+
+            <div class="grupo-input-admin">
+                <label for="passAdmin">Contraseña:</label>
+                <input type="password" id="passAdmin" name="passAdmin" placeholder="Ingresa tu contraseña" maxlength="10">
+                <span id="error-passAdmin" class="texto-error"></span>
+            </div>
+
+            <div class="contenedor-boton">
+                <button type="submit" class="btn-ingresar-admin">INGRESAR</button>
+            </div>
+            
+        </form>
+    </div>
+
+    <script src="validaciones.js"></script>
+</body>
+</html>
