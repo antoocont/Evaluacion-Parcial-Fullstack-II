@@ -428,3 +428,112 @@ LOGIN
     transform: translateX(-3px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* 
+================
+NOSOTROS
+================
+
+*/
+
+/* Contenedor general para páginas informativas */
+.container-pagina {
+    max-width: 900px;
+    margin: 80px auto 40px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.encabezado-seccion h1 {
+    color: #1e2a3a;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.encabezado-seccion p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Tarjetas de contenido */
+.tarjeta-info {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.tarjeta-info h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 8px;
+}
+
+.tarjeta-info p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Disposición en 2 columnas */
+.grid-dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid-dos-columnas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Lista estilizada de especialidades */
+.lista-especialidades {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.lista-especialidades li {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #0056b3;
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+}
+
+/* Responsive Video Container */
+.contenedor-video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    border-radius: 8px;
+}
+
+.contenedor-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Footer Informativo */
+.footer-informativo {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #d0d7e2;
+    color: #4a5a6e;
+    font-size: 0.9rem;
+}
