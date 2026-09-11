@@ -356,3 +356,50 @@ REGISTRO
 .texto-error.activo {
     display: block; 
 }
+
+
+/*
+=================
+LOGIN
+=================
+*/
+
+/* Ajustes para centrar la pantalla de Login */
+.bodylogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Tarjeta de login en una sola columna vertical */
+.formulariologin {
+    grid-template-columns: 1fr !important; /* Fuerza 1 sola columna */
+    max-width: 400px;                      /* Ancho proporcional para login */
+    width: 100%;
+    margin: 20px;
+}
+
+.formulariologin .tituloregistro {
+    grid-column: span 1;
+    text-align: center;
+}
+
+/* Estilo unificado para los enlaces de navegación entre pantallas */
+.enlace-navegacion {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    grid-column: span 1;
+}
+
+.enlace-navegacion a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enlace-navegacion a:hover {
+    text-decoration: underline;
+}

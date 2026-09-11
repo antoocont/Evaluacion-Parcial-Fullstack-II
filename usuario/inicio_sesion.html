@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bodyregistro bodylogin">
+    
+    <form class="formularioregistroborde formulariologin" id="formularioLogin" action="index.html" method="POST">
+        <p class="tituloregistro">Iniciar Sesión</p>
+
+        <div class="camporegistro">
+            <label for="rutLogin">RUT:</label>
+            <input type="text" id="rutLogin" placeholder="Ej: 12345678-9" maxlength="10">
+            <p id="error-rutLogin" class="texto-error"></p>
+        </div>
+
+        <div class="camporegistro">
+            <label for="passLogin">Contraseña:</label>
+            <input type="password" id="passLogin" placeholder="Ingresa tu contraseña">
+            <p id="error-passLogin" class="texto-error"></p>
+        </div>
+
+        <button type="submit" class="enviar">INGRESAR</button>
+
+        <p class="enlace-navegacion">
+            ¿No tienes cuenta? <a href="registro.html">Regístrate aquí</a>
+        </p>
+    </form>
+
+    <script src="validaciones.js"></script>
+</body>
+</html>
