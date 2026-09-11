@@ -537,3 +537,108 @@ NOSOTROS
     color: #4a5a6e;
     font-size: 0.9rem;
 }
+
+/* 
+===============
+CONTACTO
+===============
+*/
+
+/* Estilos para la sección de Contacto */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 600px;
+    margin: 1.5rem 0;
+}
+
+.campocontacto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campocontacto label {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.campocontacto input,
+.campocontacto select,
+.campocontacto textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campocontacto input:focus,
+.campocontacto select:focus,
+.campocontacto textarea:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.campocontacto textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.boton-enviar {
+    background-color: #0284c7;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.boton-enviar:hover {
+    background-color: #0369a1;
+}
+
+.headercontacto {
+    background-color: #0284c7;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.headercontacto h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.headercontacto nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.headercontacto nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.headercontacto nav ul li a:hover {
+    color: #bae6fd;
+}

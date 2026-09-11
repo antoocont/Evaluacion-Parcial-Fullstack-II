@@ -237,3 +237,76 @@ if (formLogin) {
         }
     });
 }
+
+/* Validaciones para el formulario de contacto */
+const formContacto = document.getElementById('formularioContacto');
+
+if (formContacto) {
+    formContacto.addEventListener('submit', function(evento) {
+        evento.preventDefault();
+        let esValido = true;
+
+        // 1. Nombre completo
+        const nombre = document.getElementById('nombre');
+        if (nombre.value.trim() === '') {
+            mostrarError('nombre', 'error-nombre', 'El nombre no puede estar vacío.');
+            esValido = false;
+        } else if (nombre.value.trim().length < 3) {
+            mostrarError('nombre', 'error-nombre', 'Ingresa tu nombre completo.');
+            esValido = false;
+        } else {
+            limpiarError('nombre', 'error-nombre');
+        }
+
+        // 2. Correo electrónico
+        const email = document.getElementById('email');
+        const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email.value.trim() === '') {
+            mostrarError('email', 'error-email', 'El correo electrónico no puede estar vacío.');
+            esValido = false;
+        } else if (!regexEmail.test(email.value.trim())) {
+            mostrarError('email', 'error-email', 'Ingresa un correo electrónico válido.');
+            esValido = false;
+        } else {
+            limpiarError('email', 'error-email');
+        }
+
+        // 3. Teléfono
+        const telefono = document.getElementById('telefono');
+        const regexTelefono = /^(\+?56)?\s?9\d{8}$/;
+        if (telefono.value.trim() === '') {
+            mostrarError('telefono', 'error-telefono', 'El teléfono no puede estar vacío.');
+            esValido = false;
+        } else if (!regexTelefono.test(telefono.value.trim().replace(/\s/g, ''))) {
+            mostrarError('telefono', 'error-telefono', 'Ingresa un teléfono válido (ej: +56 9 1234 5678).');
+            esValido = false;
+        } else {
+            limpiarError('telefono', 'error-telefono');
+        }
+        // 4. Motivo de contacto
+        const asunto = document.getElementById('asunto');
+        if (asunto.value === '') {
+            mostrarError('asunto', 'error-asunto', 'Selecciona un motivo de contacto.');
+            esValido = false;
+        } else {
+            limpiarError('asunto', 'error-asunto');
+        }
+
+        // 5. Mensaje
+        const mensaje = document.getElementById('mensaje');
+        if (mensaje.value.trim() === '') {
+            mostrarError('mensaje', 'error-mensaje', 'El mensaje no puede estar vacío.');
+            esValido = false;
+        } else if (mensaje.value.trim().length < 10) {
+            mostrarError('mensaje', 'error-mensaje', 'Tu mensaje debe tener al menos 10 caracteres.');
+            esValido = false;
+        } else {
+            limpiarError('mensaje', 'error-mensaje');
+        }
+
+        // Envío final
+        if (esValido) {
+            this.submit();
+        }
+    });
+}
