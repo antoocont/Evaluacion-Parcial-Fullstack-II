@@ -1,115 +1,193 @@
-/* RESET GENERAL: Limpia márgenes por defecto del navegador y define fuente/fondo base */
-body { margin: 0; font-family: Arial, sans-serif; background: #e6e6e6; }
+/* =========================================
+   1. CONFIGURACIÓN BASE
+========================================= */
+/* Aplica a toda la página: quita márgenes y define color de fondo */
+body { 
+    margin: 0; /* Borra el espacio blanco que los navegadores ponen por defecto */
+    font-family: Arial, sans-serif; /* Define el tipo de letra clásico */
+    background-color: #f4f4f4; /* Un gris muy claro para el fondo de toda la página */
+}
 
-/* HEADER PRINCIPAL (index.html) */
-/* Alinea la imagen del logo y el texto uno al lado del otro */
+/* =========================================
+   2. ENCABEZADO (Header Celeste)
+========================================= */
+.header-celeste {
+    display: flex; /* Activa Flexbox: pone los elementos en una fila horizontal */
+    justify-content: space-between; /* Empuja los elementos a los extremos izquierdo y derecho */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #e0f7fa; /* AQUÍ: El color celeste tipo clínica */
+    padding: 15px 40px; /* 15px de espacio interno arriba/abajo y 40px a los lados */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Crea una sombra suave debajo del encabezado */
+}
+
+/* Agrupa el logo y el texto en la parte izquierda */
 .logo-contenedor {
-    display: flex; /* Activa flexbox internamente */
-    align-items: center; /* Centra la imagen y el texto a la misma altura */
-    gap: 10px; /* Crea una separación de 10px entre la imagen y el texto */
+    display: flex; 
+    align-items: center; /* Alinea la foto y el texto en el centro */
+    gap: 15px; /* Crea un espacio de 15px entre la imagen y el texto */
 }
 
-/* Tamaño de la imagen del logo en la barra de navegación */
-.logo-img {
-    height: 40px; /* Fija la altura a 40px para que no deforme la barra blanca */
-    width: auto; /* Mantiene la proporción original de la imagen */
+/* Tamaño de la imagen del logo */
+.logo-img { height: 45px; width: auto; } /* Fija la altura, el ancho se ajusta solo */
+
+/* Estilo del nombre de la tienda */
+.logo-texto { 
+    font-size: 1.6rem; /* Tamaño de la letra */
+    font-weight: bold; /* Letras gruesas (negrita) */
+    color: #002b49; /* Azul oscuro elegante */
 }
 
-/* Diseño del nombre en la barra de navegación */
-.logo-texto {
-    font-size: 1.5rem; /* Tamaño de la fuente */
-    font-weight: bold; /* Texto en negrita */
-    color: #1a1a1a; /* Color oscuro */
-}
-
-
-/* --- HEADER --- */
-.ps-header {
-    display: flex; /* Activa flexbox para alinear elementos horizontalmente */
-    justify-content: space-between; /* Empuja el logo a la izquierda y el login a la derecha */
-    align-items: center; /* Centra los elementos verticalmente en la fila */
-    background: #ffffff; /* Fondo blanco */
-    padding: 15px 30px; /* 15px de espacio vertical, 30px horizontal interno */
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Crea la sombra que separa el header del contenido */
-}
-/* Modifica los enlaces (a) que están dentro de .ps-nav */
-.ps-nav a { 
-    margin: 0 15px; /* Separa cada botón del menú */
-    text-decoration: none; /* Quita el subrayado azul estándar de los hipervínculos */
+/* Estilo para los enlaces de navegación del centro */
+.nav-principal a { 
+    margin: 0 15px; /* Separa los enlaces 15px entre sí */
+    text-decoration: none; /* Quita la línea de subrayado de los links */
     color: #333; /* Texto gris oscuro */
-    font-weight: bold; /* Texto en negrita */
-}
-/* Estilo del botón azul de inicio de sesión */
-.btn-login { 
-    background: #0070d1; /* Azul corporativo estilo consola */
-    color: white; /* Texto blanco */
-    padding: 8px 20px; /* Dimensiones internas del botón */
-    border-radius: 20px; /* Redondea los bordes formando una píldora */
-    text-decoration: none; 
     font-weight: bold; 
 }
+.nav-principal a:hover { color: #0070d1; } /* Se vuelve azul al pasar el mouse */
 
-/* --- ESTRUCTURA PRINCIPAL DIVIDIDA --- */
-.ps-hero {
-    display: flex; height: 80vh; /* Altura del 80% de la ventana de tu pantalla *//* Coloca el banner (izq) y el catálogo (der) lado a lado */
-    padding: 0 30px 30px 30px; /* 0px arriba para quedar pegado al header, 30px en los otros lados */
-    gap: 30px; /* Margen de separación entre el lado izquierdo y el derecho */
-    align-items: stretch; /* Fuerza a que el banner y el catálogo tengan la misma altura */
-}
-
-/* --- BANNER IZQUIERDO (Fondo de película) --- */
-.hero-banner {
-    flex: 1; /* Le indica que crezca y ocupe todo el espacio sobrante que el menú derecho no usa */
-    background-size: cover; /* Ajusta la imagen para cubrir todo el contenedor sin deformarse */
-    background-position: center; /* Centra la foto de fondo */
-    position: relative; /* CRÍTICO: Permite posicionar la capa oscura superpuesta encima de él */
-    display: flex; /* Activa flexbox interno para el texto y el VHS */
-    align-items: center; /* Centra internamente de forma vertical */
-    padding: 40px; /* Espaciado interno para que los textos no se peguen a los bordes */
-    border-radius: 0 0 15px 15px; /* Redondea las esquinas inferiores del fondo de imagen */
-    transition: opacity 0.5s ease; /* Efecto Fade: la transición dura medio segundo de forma suave */
-}
-
-/* CAPA OSCURA: Se crea visualmente para oscurecer el fondo y permitir lectura */
-.hero-banner::before {
-    content: ""; /* Propiedad obligatoria para generar este elemento "fantasma" */
-    position: absolute; /* Lo desconecta del flujo normal para flotar encima del banner */
-    top: 0; left: 0; width: 100%; height: 100%; /* Le indica que cubra el 100% de la foto */
-    background: rgba(0,0,0,0.6); /* Color negro (0,0,0) al 60% (0.6) de transparencia */
-    z-index: 1; /* Lo ubica en la "capa 1", justo encima de la imagen de fondo */
-    border-radius: 0 0 15px 15px; /* Obliga a la capa oscura a tener los mismos bordes redondos */
-}
-
-/* CAJA INTERNA DEL BANNER (Textos + VHS) */
-.banner-content {
-    position: relative; 
-    z-index: 2; /* Lo ubica en la "capa 2", protegiendo los textos para que no se oscurezcan */
-    width: 100%; 
-    display: flex; /* Pone texto a un lado y VHS al otro */
+/* Agrupa la lupa y el botón de inicio de sesión a la derecha */
+.acciones-header {
+    display: flex; 
     align-items: center; 
-    justify-content: space-between; /* Separa los textos y el VHS lo máximo posible */
-    gap: 30px;
+    gap: 20px; /* Separación entre la lupa y el botón */
 }
 
-/* ESTILOS DE TEXTO IZQUIERDO */
-.info-texto { 
-    flex: 1; /* Ocupa el espacio empujando el VHS hacia la derecha */
-    color: white; /* Fuerza el color blanco para máximo contraste */
-    text-shadow: 2px 2px 5px black; /* Crea sombra en las letras mejorando la legibilidad */
+/* Botón azul principal de Iniciar Sesión */
+.btn-login {
+    background-color: #0070d1; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px 25px; /* Engorda el botón con espacio interno */
+    border-radius: 25px; /* Bordes muy redondeados (tipo píldora) */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold;
 }
-.info-texto h2 { font-size: 3rem; margin-bottom: 10px; }
-.precio { font-size: 1.5rem; color: #ffcc00; font-weight: bold; } /* Amarillo retro */
+
+/* =========================================
+   3. ESTRUCTURA CENTRAL (Contenedor principal)
+========================================= */
+.contenedor-principal {
+    max-width: 1300px; /* Evita que el contenido se estire infinito en pantallas gigantes */
+    margin: 0 auto; /* Centra el contenedor en medio de la pantalla */
+    padding: 40px 20px; /* Espacio arriba/abajo (40px) y a los lados (20px) */
+}
+
+/* =========================================
+   4. IMAGEN CENTRAL (Banner)
+========================================= */
+.banner-central {
+    /* Aquí pones tu imagen de fondo real. Por ahora uso un gris oscuro de prueba */
+    background-image: url('./img/fondo-1.jpg'); 
+    background-color: #333; /* Color de respaldo si la imagen falla */
+    background-size: cover; /* Hace que la imagen cubra toda la caja */
+    background-position: center; /* Centra la imagen */
+    border-radius: 15px; /* Redondea las esquinas del banner gigante */
+    position: relative; /* CRÍTICO: Necesario para ponerle una capa oscura encima */
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Centra verticalmente los elementos internos */
+    padding: 50px; /* Espaciado interno generoso */
+    margin-bottom: 40px; /* Empuja las cajas de abajo (Grilla) 40px hacia abajo */
+}
+
+/* Capa oscura semitransparente para asegurar que se lean los textos blancos */
+.banner-central::before {
+    content: ""; /* Obligatorio para crear elementos invisibles en CSS */
+    position: absolute; /* Saca la capa del flujo y la hace flotar */
+    top: 0; left: 0; width: 100%; height: 100%; /* Cubre el 100% de la imagen */
+    background: rgba(0,0,0,0.6); /* Color negro al 60% de transparencia */
+    border-radius: 15px; /* Hereda las esquinas redondas */
+    z-index: 1; /* Pone esta capa en el nivel 1 (sobre la foto) */
+}
+
+/* Caja que agrupa los textos y la carátula, protegiéndolos de la oscuridad */
+.banner-contenido {
+    position: relative; 
+    z-index: 2; /* Nivel 2 (Queda por encima de la capa oscura para verse bien) */
+    width: 100%;
+    display: flex; /* Pone los textos a un lado y la carátula al otro */
+    justify-content: space-between; /* Los separa hacia los bordes */
+    align-items: center;
+    gap: 40px;
+}
+
+/* Diseño de las letras blancas */
+.banner-textos { 
+    flex: 1; /* Permite que la caja de texto crezca ocupando el espacio disponible */
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* Crea sombra en las letras */
+}
+.banner-textos h2 { font-size: 3.5rem; margin-top: 0; margin-bottom: 10px; }
+.banner-textos p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; }
+.precio-destacado { font-size: 1.8rem; font-weight: bold; color: #ffcc00; } /* Amarillo oro */
+
+/* Botón de reservar ahora (Naranja) */
 .btn-reservar { 
-    background: #d13600; /* Botón naranja/rojo */
-    color: white; padding: 10px 20px; border: none; 
-    border-radius: 20px; font-weight: bold; cursor: pointer; /* Cursor de manito */
+    background-color: #d13600; 
+    color: white; 
+    padding: 12px 30px; 
+    border: none; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    cursor: pointer; 
 }
 
-/* imagen central derecha */
-.vhs-img {
-    width: 200px; /* Fija un ancho estático simulando una caja real */
-    object-fit: cover; /* Evita achatamientos */
-    border-radius: 5px; /* Bordes ligeramente curvos */
-    border: 2px solid white; /* Borde blanco rígido de foto */
-    box-shadow: 10px 10px 20px rgba(0,0,0,0.8); /* Sombra pesada (offset derecho, abajo, desenfoque) para dar efecto 3D */
+/* Imagen física de la derecha  */
+.banner-caratula {
+    width: 250px; /* Ancho fijo para la caja */
+    border-radius: 8px; /* Bordes ligeramente curvos */
+    border: 3px solid white; /* Marco blanco tipo foto */
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.8); /* Sombra 3D pronunciada */
+}
+
+/* =========================================
+   5. LAS CAJAS PEQUEÑAS ABAJO (Grilla)
+========================================= */
+.grilla-inferior {
+    display: grid; /* Activa la cuadrícula (Grid CSS) */
+    grid-template-columns: repeat(5, 1fr); /* Crea exactamente 5 columnas del mismo tamaño */
+    gap: 25px; /* Espacio de separación entre las 5 cajas */
+}
+
+/* Diseño individual de cada una de las 5 tarjetas */
+.tarjeta-pequena {
+    background-color: white; /* Fondo blanco */
+    border-radius: 10px; /* Esquinas redondas */
+    padding: 15px; /* Espacio interno para que no se peguen a los bordes */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra súper suave */
+    transition: transform 0.3s; /* Prepara la tarjeta para animación al pasar el mouse */
+}
+
+/* Pequeño salto hacia arriba cuando pasas el mouse por una tarjeta */
+.tarjeta-pequena:hover {
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   DISEÑO PARA LA IMAGEN REAL DE LA TARJETA
+========================================= */
+.tarjeta-img {
+    width: 100%; /* Obliga a la imagen a expandirse de lado a lado dentro de la tarjeta blanca */
+    height: 180px; /* Fija la altura exacta para que todas las fotos queden perfectamente parejas */    
+    /* CRÍTICO: object-fit cover hace magia. Recorta la foto automáticamente para que llene el espacio (100% x 180px) sin que se deforme, se aplaste o se estire */
+    object-fit: cover;     
+    border-radius: 5px; /* Suaviza las 4 puntas de la foto haciéndolas un poco redondas */
+    margin-bottom: 15px; /* Crea un espacio hacia abajo para separar la foto del título que le sigue */
+}
+
+/* Estilos de los textos dentro de las tarjetas */
+.tarjeta-titulo { 
+    font-size: 1.1rem; 
+    margin: 0 0 10px 0; 
+    color: #333; 
+}
+.tarjeta-detalles { 
+    display: flex; 
+    justify-content: space-between; /* Separa los atributos a la izq y precio a la der */
+    font-size: 0.8rem; 
+    color: #666; 
+}
+.tarjeta-precio { 
+    font-weight: bold; 
+    color: #000; 
 }

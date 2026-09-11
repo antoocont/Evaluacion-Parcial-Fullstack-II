@@ -1,73 +1,157 @@
+<!-- Declara que el documento es HTML5 -->
 <!DOCTYPE html>
+<!-- Define el idioma español para el navegador -->
 <html lang="es">
 <head>
-    <!-- Codificación que permite usar tildes y caracteres especiales (ñ) -->
+    <!-- Permite el uso de caracteres especiales como tildes y la 'ñ' -->
     <meta charset="UTF-8">
-    <!-- Título que aparece en la pestaña superior del navegador -->
-    <title>Salud Total - Inicio</title>
-    <!-- Vincula este HTML con el archivo de estilos externos para aplicar diseño -->
+    <!-- Título que se mostrará en la pestaña del navegador -->
+    <title>SaludTotal - Inicio</title>
+    <!-- Conecta este archivo con la hoja de estilos CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header class="ps-header">
-        <!-- NUEVO: Contenedor que agrupa la imagen de tu logo y el texto -->
+
+    <!-- =========================================
+         ENCABEZADO (Color Celeste Clínica)
+    ========================================= -->
+    <header class="header-celeste">
+        
+        <!-- Bloque Izquierdo: Logo y nombre de la tienda -->
         <div class="logo-contenedor">
-            <!-- IMG: Llama a tu logo desde la carpeta img. Si tu logo es .jpg, cambia la extensión aquí -->
-            <img src="./img/logo.jpg" alt="Logo Salud Total" class="logo-img">
-            <!-- SPAN: El nuevo nombre de tu tienda -->
-            <span class="logo-texto">Salud Total</span>
+            <!-- Llama a la imagen del logo -->
+            <img src="./img/logo.jpg" alt="Logo" class="logo-img">
+            <!-- Texto al lado del logo -->
+            <span class="logo-texto">SaludTotal</span>
         </div>
         
-        <!-- NAV: Etiqueta semántica para los botones de navegación entre páginas -->
-        <nav class="ps-nav">
+        <!-- Bloque Central: Enlaces de navegación desplegables -->
+        <nav class="nav-principal">
             <a href="index.html">Inicio ˅</a>
+            <a href="registro.html">Registro ˅</a>
             <a href="cita_medica.html">Cita Medica ˅</a>
             <a href="nosotros.html">Nosotros ˅</a>
             <a href="contacto.html">Contacto ˅</a>
         </nav>
         
-        <!-- Contenedor para acciones del usuario (lupa y botón de cuenta) -->
-        <div class="ps-actions">
-            <!-- Enlace que visualmente lo transformaremos en un botón azul -->
+        <!-- Bloque Derecho: Lupa y botón de Iniciar Sesión -->
+        <div class="acciones-header">
+            <!-- Botón azul redondeado -->
             <a href="inicio_sesion.html" class="btn-login">Iniciar sesión</a>
         </div>
+        
     </header>
 
-
-    <!-- MAIN: Etiqueta semántica que alberga el contenido único principal de la página -->
-    <main class="ps-hero">
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================= -->
+    <!-- Etiqueta semántica main para el contenido central de la página -->
+    <main class="contenedor-principal">
         
-        <!-- SECTION: Panel izquierdo. Aquí se pondrá el fondo dinámico mediante JS -->
-        <section class="hero-banner" id="hero-banner">
+        <!-- 1. IMAGEN CENTRAL (Banner) -->
+        <section class="banner-central" id="banner-central">
             
-            <!-- DIV: Agrupa el texto y la imagen para que queden sobre el fondo oscuro -->
-            <div class="banner-content">
+            <!-- Caja que agrupa el contenido por encima del fondo oscuro -->
+            <div class="banner-contenido">
                 
-                <!-- DIV: Agrupa exclusivamente los textos para separarlos de la imagen física -->
-                <div class="info-texto">
-                    <!-- H2: Título de la película, recibe un ID para inyectarle texto desde JS -->
-                    <h2 id="pelicula-titulo">Cargando...</h2>
-                    <!-- Párrafo para la sinopsis dinámica -->
-                    <p id="sinopsis"></p>
-                    <!-- Párrafo para el precio, usando una clase para destacarlo con color -->
-                    <p class="precio" id="precio"></p>
-                    <!-- Botón estándar para la acción de comprar/reservar -->
-                    <button class="btn-reservar">Reservar ahora</button>
+                <!-- Textos e información (Lado izquierdo) -->
+                <div class="banner-textos">
+                    <h2>¿Aún no tienes una cuenta?</h2>
+                    <p>Creeate una cuenta para agendar citas medicas a la hora que te acomode.</p>
+                    <p class="precio-destacado">Totalmente Gratis</p>
+                    <!-- Botón de acción naranja -->
+                    <button class="btn-reservar">Registro</button>
                 </div>
                 
-                <!-- IMG: Aquí va la carátula de la caja del VHS. El "src" se llena con JS -->
-                <img id="vhs-portada" src="" alt="Carátula VHS" class="vhs-img">
+                <!-- Carátula física del VHS (Lado derecho) -->
+                <img src="./img/img-1.jpg" alt="Carátula" class="banner-caratula">
+                
             </div>
         </section>
+
+        <!-- 2. LAS OTRAS PEQUEÑAS ABAJO (Grilla de 4 columnas) -->
+        <section class="grilla-inferior">
+            
+            <!-- =========================================
+                 TARJETA 1
+            ========================================= -->
+            <article class="tarjeta-pequena">
+                
+                <!-- NUEVO: Etiqueta img para mostrar una foto real -->
+                <!-- src: Define la ruta de la foto. Cambia 'foto-servicio-1.jpg' por el nombre exacto de tu imagen en la carpeta img -->
+                <!-- alt: Texto descriptivo en caso de que la imagen no cargue -->
+                <!-- class: La clase CSS que le dará el tamaño y forma correcta -->
+                <img src="./img/med-gen.jpg" alt="medico General" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Medicina General</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dra. María Pérez - 20 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">08:00 - 17:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 2 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/pedia.jpg" alt="pediatra" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Pediatria</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dr. Juan López - 25 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">09:00 - 18:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 3 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/gine.jpg" alt="Ginecologia" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Ginecologia</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dra. Ana González - 30 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">08:00 - 16:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 4 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/trauma.jpg" alt="Traumatologia" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Traumatologia</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dr. Carlos Soto - 25 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">10:00 - 19:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 5 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/derma.jpg" alt="Dermatologia" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Dermatologia</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dra. Elena Rojas - 20 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">09:00 - 17:00</span>
+                </div>
+            </article>
+
+        </section>
         
-        <!-- ASIDE: Etiqueta semántica para contenido lateral (el menú derecho rotativo) -->
-        <aside class="hero-catalogo">
-            <!-- Contenedor que JavaScript usará para generar la lista de películas -->
-            <div class="lista-peliculas" id="lista-peliculas"></div>
-        </aside>
     </main>
 
-    <!-- SCRIPT: Llama al archivo de lógica. Se pone al final para que cargue después del HTML -->
-    <script src="validaciones.js"></script>
 </body>
 </html>
