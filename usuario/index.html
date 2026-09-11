@@ -1,11 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+    <!-- Codificación que permite usar tildes y caracteres especiales (ñ) -->
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <!-- Título que aparece en la pestaña superior del navegador -->
+    <title>Salud Total - Inicio</title>
+    <!-- Vincula este HTML con el archivo de estilos externos para aplicar diseño -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <header class="ps-header">
+        <!-- NUEVO: Contenedor que agrupa la imagen de tu logo y el texto -->
+        <div class="logo-contenedor">
+            <!-- IMG: Llama a tu logo desde la carpeta img. Si tu logo es .jpg, cambia la extensión aquí -->
+            <img src="./img/logo.jpg" alt="Logo Salud Total" class="logo-img">
+            <!-- SPAN: El nuevo nombre de tu tienda -->
+            <span class="logo-texto">Salud Total</span>
+        </div>
+        
+        <!-- NAV: Etiqueta semántica para los botones de navegación entre páginas -->
+        <nav class="ps-nav">
+            <a href="index.html">Inicio ˅</a>
+            <a href="cita_medica.html">Cita Medica ˅</a>
+            <a href="nosotros.html">Nosotros ˅</a>
+            <a href="contacto.html">Contacto ˅</a>
+        </nav>
+        
+        <!-- Contenedor para acciones del usuario (lupa y botón de cuenta) -->
+        <div class="ps-actions">
+            <!-- Enlace que visualmente lo transformaremos en un botón azul -->
+            <a href="inicio_sesion.html" class="btn-login">Iniciar sesión</a>
+        </div>
+    </header>
+
+
+    <!-- MAIN: Etiqueta semántica que alberga el contenido único principal de la página -->
+    <main class="ps-hero">
+        
+        <!-- SECTION: Panel izquierdo. Aquí se pondrá el fondo dinámico mediante JS -->
+        <section class="hero-banner" id="hero-banner">
+            
+            <!-- DIV: Agrupa el texto y la imagen para que queden sobre el fondo oscuro -->
+            <div class="banner-content">
+                
+                <!-- DIV: Agrupa exclusivamente los textos para separarlos de la imagen física -->
+                <div class="info-texto">
+                    <!-- H2: Título de la película, recibe un ID para inyectarle texto desde JS -->
+                    <h2 id="pelicula-titulo">Cargando...</h2>
+                    <!-- Párrafo para la sinopsis dinámica -->
+                    <p id="sinopsis"></p>
+                    <!-- Párrafo para el precio, usando una clase para destacarlo con color -->
+                    <p class="precio" id="precio"></p>
+                    <!-- Botón estándar para la acción de comprar/reservar -->
+                    <button class="btn-reservar">Reservar ahora</button>
+                </div>
+                
+                <!-- IMG: Aquí va la carátula de la caja del VHS. El "src" se llena con JS -->
+                <img id="vhs-portada" src="" alt="Carátula VHS" class="vhs-img">
+            </div>
+        </section>
+        
+        <!-- ASIDE: Etiqueta semántica para contenido lateral (el menú derecho rotativo) -->
+        <aside class="hero-catalogo">
+            <!-- Contenedor que JavaScript usará para generar la lista de películas -->
+            <div class="lista-peliculas" id="lista-peliculas"></div>
+        </aside>
+    </main>
+
+    <!-- SCRIPT: Llama al archivo de lógica. Se pone al final para que cargue después del HTML -->
+    <script src="validaciones.js"></script>
 </body>
 </html>
