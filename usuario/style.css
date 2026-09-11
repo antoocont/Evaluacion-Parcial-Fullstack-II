@@ -337,3 +337,22 @@ REGISTRO
 .enviar:active {
     transform: scale(0.97);
 }
+
+
+/* Clases para las validaciones de error */
+.input-error {
+    border: 2px solid red !important; /* Borde rojo */
+    background-color: #ffe6e6; /* Fondo un poco rojizo opcional */
+}
+
+.texto-error {
+    color: red;
+    font-size: 13px;
+    margin-top: 2px;
+    display: none; /* Oculto por defecto */
+}
+
+/* Cuando le agreguemos esta clase con JS, el texto se mostrará */
+.texto-error.activo {
+    display: block; 
+}
