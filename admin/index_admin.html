@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludTotal - Panel Administrador</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body-admin">
+
+    <!-- Navegacion Superior Horizontal -->
+    <header class="admin-navbar">
+        <div class="admin-brand">
+            <img src="./img/logo.jpg" alt="Logo SaludTotal" class="brand-logo">
+            <h2>SaludTotal</h2>
+        </div>
+        <nav class="admin-nav-horizontal">
+            <ul>
+                <li><a href="index_admin.html" class="activo">Inicio v</a></li>
+                <li><a href="contacto_pacie_doct.html">Contacto Paciente / Doctor v</a></li>
+                <li><a href="generar_informe.html">Generar Informes v</a></li>
+                <li><a href="modificar_costos.html">Modificar Costos v</a></li>
+            </ul>
+        </nav>
+        <div class="admin-user-action">
+            <a href="inicio_admin.html" class="btn-cerrar-sesion">Cerrar Sesion</a>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="admin-container">
+        
+        <!-- Banner de Bienvenida -->
+        <section class="admin-hero">
+            <div class="hero-text">
+                <h1>¡HOLA Administrador!</h1>
+                <p>Bienvenido al panel centralizado de SaludTotal. Gestiona la atencion medica, informes y costos del centro desde este portal.</p>
+                <a href="generar_informe.html" class="btn-hero">Ver Reportes</a>
+            </div>
+        </section>
+
+        <!-- Tarjetas Informativas / Especialidades -->
+        <section class="admin-cards-grid">
+            <div class="card-item">
+                <h3>Medicina General</h3>
+                <p class="medico-nombre">Dra. Maria Perez</p>
+                <div class="card-detalles">
+                    <span>Duracion: 20 min</span>
+                    <span>Horario: 08:00 - 17:00</span>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <h3>Pediatria</h3>
+                <p class="medico-nombre">Dr. Juan Lopez</p>
+                <div class="card-detalles">
+                    <span>Duracion: 25 min</span>
+                    <span>Horario: 09:00 - 18:00</span>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <h3>Ginecologia</h3>
+                <p class="medico-nombre">Dra. Ana Gonzalez</p>
+                <div class="card-detalles">
+                    <span>Duracion: 30 min</span>
+                    <span>Horario: 08:00 - 16:00</span>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <h3>Traumatologia</h3>
+                <p class="medico-nombre">Dr. Carlos Soto</p>
+                <div class="card-detalles">
+                    <span>Duracion: 25 min</span>
+                    <span>Horario: 10:00 - 19:00</span>
+                </div>
+            </div>
+
+            <div class="card-item">
+                <h3>Dermatologia</h3>
+                <p class="medico-nombre">Dra. Elena Rojas</p>
+                <div class="card-detalles">
+                    <span>Duracion: 20 min</span>
+                    <span>Horario: 09:00 - 17:00</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
