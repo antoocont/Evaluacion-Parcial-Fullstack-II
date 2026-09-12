@@ -642,3 +642,66 @@ CONTACTO
 .headercontacto nav ul li a:hover {
     color: #bae6fd;
 }
+
+/* ADAPTACIONES PARA TABLETS Y CELULARES */
+
+/* --- TABLETS (hasta 992px) --- */
+@media (max-width: 992px) {
+    /* La grilla del index pasa de 5 a 3 columnas */
+    .grilla-inferior {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* --- CELULARES (hasta 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Grilla principal a 1 columna (Index) */
+    .grilla-inferior {
+        grid-template-columns: 1fr; 
+    }
+
+    /* 2. Formulario de registro a 1 columna */
+    .formularioregistroborde {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* 1 sola columna */
+        width: 92% !important; /* Deja un pequeño margen a los lados */
+        padding: 25px 20px !important;
+        margin: 15px auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .camporegistro input,
+    .camporegistro select {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .enlace-navegacion {
+        grid-column: 1 / -1 !important; 
+        text-align: center;
+    }
+
+    /* 3. El banner del index se apila verticalmente */
+    .banner-contenido {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .banner-textos h2 { font-size: 2.2rem; }
+    .banner-caratula { width: 180px; } 
+
+    /* 4. Adaptación de ambos Headers (Index y Contacto) */
+    .header-celeste, .headercontacto {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .nav-principal, .headercontacto nav ul {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px;
+    }
+    .nav-principal a { margin: 0; }
+}

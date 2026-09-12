@@ -532,3 +532,122 @@
     color: #0f172a;
 }
 
+
+/* ==========================================================================
+   MEDIA QUERIES - DISEÑO RESPONSIVO VISTA ADMINISTRADOR
+   ========================================================================== */
+
+/* ===== TABLETS Y PANTALLAS MEDIANAS (Max-width: 992px) ===== */
+@media (max-width: 992px) {
+    /* Ajustes Panel Admin */
+    .admin-navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .admin-nav-horizontal ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .admin-nav-horizontal ul li a {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+    }
+
+    .admin-hero {
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .hero-text p {
+        margin: 0 auto 20px auto;
+    }
+
+    /* Ajustes Contacto Paciente / Doctor */
+    .contacto-container {
+        padding: 0 15px;
+    }
+
+    .contacto-filtros {
+        flex-direction: column;
+    }
+    
+    .contacto-select-filtro {
+        width: 100%;
+    }
+}
+
+/* ===== CELULARES Y PANTALLAS PEQUEÑAS (Max-width: 768px) ===== */
+@media (max-width: 768px) {
+    
+    /* Login Administrador */
+    .tarjeta-login-admin {
+        margin: 20px;
+        padding: 30px 25px;
+    }
+
+    /* Panel Principal Admin */
+    .admin-brand h2 {
+        font-size: 1.4rem;
+    }
+
+    .brand-logo {
+        height: 35px;
+    }
+
+    .btn-cerrar-sesion {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .admin-nav-horizontal ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .admin-nav-horizontal ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .admin-nav-horizontal ul li a {
+        display: block;
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .admin-cards-grid {
+        grid-template-columns: 1fr; /* Una columna en celulares */
+    }
+
+    /* Contacto Paciente / Doctor - Adaptación de la Tabla */
+    .contacto-nav-outer {
+        padding: 15px 0 10px 15px;
+    }
+
+    .contacto-card-section {
+        padding: 20px 15px;
+    }
+
+    /* Estrategia de tabla responsiva (Scroll horizontal) */
+    .contacto-table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+    }
+
+    .contacto-table {
+        min-width: 800px; /* Fuerza el ancho para habilitar el scroll */
+    }
+
+}
