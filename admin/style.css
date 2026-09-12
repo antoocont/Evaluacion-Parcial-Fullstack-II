@@ -273,3 +273,262 @@
     border-top: 1px solid #f0f3f6;
     padding-top: 10px;
 }
+
+/* CONTACTO PACIENTE DOCTOR*/
+
+.body-contacto,
+.body-contacto * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.body-contacto {
+    background-color: #f4f7f9;
+    color: #1e2a3a;
+}
+
+/* Boton Volver (Píldora flotante separada a la izquierda) */
+.contacto-nav-outer {
+    padding: 25px 0 15px 40px;
+    width: 100%;
+}
+
+.contacto-btn-volver {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #1e2a3a;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.contacto-btn-volver:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    color: #0066cc;
+    border-color: #0066cc;
+}
+
+/* Contenedor Principal */
+.contacto-container {
+    max-width: 1350px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.contacto-card-section {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f6;
+}
+
+.contacto-header h1 {
+    font-size: 1.7rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.contacto-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Filtros */
+.contacto-filtros {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.contacto-input-buscar, 
+.contacto-select-filtro {
+    padding: 9px 7px;
+    border: 1px solid #cbd5e1;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #f8fafc;
+    color: #334155;
+    transition: all 0.2s ease;
+}
+
+.contacto-input-buscar {
+    flex-grow: 1;
+}
+
+.contacto-input-buscar:focus, 
+.contacto-select-filtro:focus {
+    border-color: #0066cc;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* Tabla */
+.contacto-table-container {
+    overflow-x: auto;
+}
+
+.contacto-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+}
+
+.contacto-table th {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 14px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.contacto-table th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 1px solid #e2e8f0;
+}
+
+.contacto-table th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.contacto-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.contacto-table tbody tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* Estilos internos de la tabla */
+.contacto-id-tag {
+    background-color: #e2e8f0;
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.contacto-col-fecha {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.contacto-persona-nombre {
+    color: #0f172a;
+}
+
+.contacto-doctor-nombre {
+    color: #334155;
+    font-weight: 500;
+}
+
+.contacto-especialidad-tag {
+    background-color: #f0f9ff;
+    color: #0284c7;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.contacto-motivo-texto {
+    color: #475569;
+    max-width: 220px;
+}
+
+/* Badges con punto indicador visible */
+.contacto-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.contacto-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.contacto-badge-pendiente {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.contacto-badge-pendiente .contacto-dot {
+    background-color: #f59e0b;
+}
+
+.contacto-badge-respondido {
+    background-color: #dcfce7;
+    color: #166534;
+}
+.contacto-badge-respondido .contacto-dot {
+    background-color: #22c55e;
+}
+
+/* Botones de la tabla (Evita deformación del texto) */
+.contacto-text-center {
+    text-align: center;
+}
+
+.contacto-btn-tabla {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.contacto-btn-primary {
+    background-color: #0066cc;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 102, 204, 0.2);
+}
+
+.contacto-btn-primary:hover {
+    background-color: #004c99;
+    transform: translateY(-1px);
+}
+
+.contacto-btn-secondary {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.contacto-btn-secondary:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+

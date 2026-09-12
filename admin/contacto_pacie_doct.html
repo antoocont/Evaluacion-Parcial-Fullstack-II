@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludTotal - Contacto Paciente / Doctor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body-contacto">
+
+    <!-- Boton Volver separado con estilo de pildora -->
+    <div class="contacto-nav-outer">
+        <a href="index_admin.html" class="contacto-btn-volver">&larr; Volver al inicio</a>
+    </div>
+
+    <!-- Contenedor Principal -->
+    <main class="contacto-container">
+        
+        <section class="contacto-card-section">
+            <div class="contacto-header">
+                <h1>Registro de Contacto Paciente / Doctor</h1>
+                <p>Gestiona las solicitudes de comunicacion, consultas de recetas y mensajes entre pacientes y especialistas.</p>
+            </div>
+
+            <!-- Filtros -->
+            <div class="contacto-filtros">
+                <input type="text" placeholder="Buscar por paciente, doctor o motivo..." class="contacto-input-buscar">
+                <select class="contacto-select-filtro">
+                    <option value="">Todos los estados</option>
+                    <option value="pendiente">Pendientes</option>
+                    <option value="respondido">Respondidos</option>
+                </select>
+            </div>
+
+            <!-- Tabla corregida -->
+            <div class="contacto-table-container">
+                <table class="contacto-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>FECHA</th>
+                            <th>PACIENTE</th>
+                            <th>DOCTOR</th>
+                            <th>ESPECIALIDAD</th>
+                            <th>MOTIVO</th>
+                            <th>ESTADO</th>
+                            <th class="contacto-text-center">ACCIONES</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="contacto-id-tag">#101</span></td>
+                            <td class="contacto-col-fecha">10/09/2026</td>
+                            <td><strong class="contacto-persona-nombre">Carlos Mendoza</strong></td>
+                            <td><span class="contacto-doctor-nombre">Dra. Maria Perez</span></td>
+                            <td><span class="contacto-especialidad-tag">Medicina General</span></td>
+                            <td class="contacto-motivo-texto">Consulta sobre dosis de receta</td>
+                            <td>
+                                <span class="contacto-badge contacto-badge-pendiente">
+                                    <span class="contacto-dot"></span> Pendiente
+                                </span>
+                            </td>
+                            <td class="contacto-text-center">
+                                <button class="contacto-btn-tabla contacto-btn-primary">Ver Detalle</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="contacto-id-tag">#102</span></td>
+                            <td class="contacto-col-fecha">09/09/2026</td>
+                            <td><strong class="contacto-persona-nombre">Andrea Silva</strong></td>
+                            <td><span class="contacto-doctor-nombre">Dr. Juan Lopez</span></td>
+                            <td><span class="contacto-especialidad-tag">Pediatria</span></td>
+                            <td class="contacto-motivo-texto">Solicitud de examen preventivo</td>
+                            <td>
+                                <span class="contacto-badge contacto-badge-respondido">
+                                    <span class="contacto-dot"></span> Completado
+                                </span>
+                            </td>
+                            <td class="contacto-text-center">
+                                <button class="contacto-btn-tabla contacto-btn-secondary">Respondido</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span class="contacto-id-tag">#103</span></td>
+                            <td class="contacto-col-fecha">08/09/2026</td>
+                            <td><strong class="contacto-persona-nombre">Roberto Gomez</strong></td>
+                            <td><span class="contacto-doctor-nombre">Dr. Carlos Soto</span></td>
+                            <td><span class="contacto-especialidad-tag">Traumatologia</span></td>
+                            <td class="contacto-motivo-texto">Malestar posterior a control</td>
+                            <td>
+                                <span class="contacto-badge contacto-badge-pendiente">
+                                    <span class="contacto-dot"></span> Pendiente
+                                </span>
+                            </td>
+                            <td class="contacto-text-center">
+                                <button class="contacto-btn-tabla contacto-btn-primary">Ver Detalle</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>
