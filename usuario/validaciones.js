@@ -310,3 +310,146 @@ if (formContacto) {
         }
     });
 }
+
+
+const MEDICOS_POR_ESPECIALIDAD = {
+    "Medicina General": ["Dra. María Pérez"],
+    "Pediatría": ["Dr. Juan López"],
+    "Ginecología": ["Dra. Ana González"],
+    "Traumatología": ["Dr. Carlos Soto"],
+    "Dermatología": ["Dra. Elena Rojas"]
+};
+
+document.addEventListener('DOMContentLoaded', () => {
+   
+    if (document.getElementById('formAgendar')) {
+        initAgendarCita();
+    }
+
+    if (document.getElementById('contenedorCita')) {
+        initVerCita();
+    }
+});
+
+
+function initAgendarCita() {
+    const especialidadSelect = document.getElementById('especialidad');
+    const medicoSelect = document.getElementById('medico');
+    const fechaInput = document.getElementById('fecha');
+    const formAgendar = document.getElementById('formAgendar');
+
+   
+    const hoy = new Date().toISOString().split('T')[0];
+    fechaInput.setAttribute('min', hoy);
+
+    
+    especialidadSelect.addEventListener('change', () => {
+        const especialidad = especialidadSelect.value;
+        medicoSelect.innerHTML = '<option value="">-- Selecciona un médico --</option>';
+
+        if (especialidad && MEDICOS_POR_ESPECIALIDAD[especialidad]) {
+            MEDICOS_POR_ESPECIALIDAD[especialidad].forEach(medico => {
+                const option = document.createElement('option');
+                option.value = medico;
+                option.textContent = medico;
+                medicoSelect.appendChild(option);
+            });
+            medicoSelect.disabled = false;
+        } else {
+            medicoSelect.innerHTML = '<option value="">-- Selecciona primero una especialidad --</option>';
+            medicoSelect.disabled = true;
+        }
+    });
+
+  
+    formAgendar.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        const especialidad = especialidadSelect.value;
+        const medico = medicoSelect.value;
+        const fecha = fechaInput.value;
+        const hora = document.getElementById('hora').value;
+        const observaciones = document.getElementById('observaciones').value.trim();
+
+      
+        if (!especialidad || !medico || !fecha || !hora) {
+            alert('Por favor, completa todos los campos obligatorios.');
+            return;
+        }
+
+       
+        const nuevaCita = {
+            id: 'ST-' + Math.floor(100000 + Math.random() * 900000),
+            especialidad: especialidad,
+            medico: medico,
+            fecha: fecha,
+            hora: hora,
+            observaciones: observaciones || 'Sin observaciones particulares.',
+            estado: 'Confirmada'
+        };
+
+    
+        localStorage.setItem('citaRegistrada', JSON.stringify(nuevaCita));
+
+        alert('¡Cita agendada exitosamente!');
+        window.location.href = 'cita_medica.html';
+    });
+}
+
+
+function initVerCita() {
+    renderizarDetalleCita();
+}
+
+function renderizarDetalleCita() {
+    const contenedor = document.getElementById('contenedorCita');
+    const citaGuardada = localStorage.getItem('citaRegistrada');
+
+    if (!citaGuardada) {
+        contenedor.innerHTML = `
+            <div class="sin-citas">
+                <h3>No posees citas médicas agendadas en este momento.</h3>
+                <p>Haz clic en el botón de abajo para reservar una nueva hora.</p>
+            </div>
+        `;
+        return;
+    }
+
+    const cita = JSON.parse(citaGuardada);
+
+    contenedor.innerHTML = `
+        <div class="header-cita-card">
+            <span class="codigo-cita">Código: <strong>${cita.id}</strong></span>
+            <span class="badge-estado ${cita.estado === 'Confirmada' ? 'estado-activa' : 'estado-cancelada'}">
+                ${cita.estado}
+            </span>
+        </div>
+        <div class="cuerpo-cita-card">
+            <p><strong>Especialidad:</strong> ${cita.especialidad}</p>
+            <p><strong>Médico:</strong> ${cita.medico}</p>
+            <p><strong>Fecha:</strong> ${cita.fecha}</p>
+            <p><strong>Hora:</strong> ${cita.hora} hrs</p>
+            <p><strong>Motivo / Observaciones:</strong> ${cita.observaciones}</p>
+        </div>
+        ${cita.estado === 'Confirmada' ? `
+            <div class="footer-cita-card">
+                <button type="button" id="btnCancelarCita" class="btn-cancelar">Cancelar Cita</button>
+            </div>
+        ` : ''}
+    `;
+
+    
+    const btnCancelar = document.getElementById('btnCancelarCita');
+    if (btnCancelar) {
+        btnCancelar.addEventListener('click', cancelarCita);
+    }
+}
+
+function cancelarCita() {
+    const confirmacion = confirm('¿Estás seguro de que deseas cancelar la cita médica seleccionada?');
+    if (confirmacion) {
+        localStorage.removeItem('citaRegistrada');
+        alert('La cita ha sido cancelada correctamente.');
+        renderizarDetalleCita();
+    }
+}
