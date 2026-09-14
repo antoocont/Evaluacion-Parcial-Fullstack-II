@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludTotal - Agendar Cita</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+    <header class="header-celeste">
+        <div class="logo-contenedor">
+            <img src="./img/logo.jpg" alt="Logo" class="logo-img">
+            <span class="logo-texto">SaludTotal</span>
+        </div>
+        <nav class="nav-principal">
+            <a href="index.html">Inicio</a>
+            <a href="registro.html">Registro</a>
+            <a href="cita_medica.html">Cita Médica</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="acciones-header">
+            <a href="inicio_sesion.html" class="btn-login">Iniciar sesión</a>
+        </div>
+    </header>
+
+  
+    <main class="contenedor-principal">
+        <section class="formulario-seccion">
+            <h2>Agendar Cita Médica</h2>
+            <p>Selecciona la especialidad, profesional, fecha y hora para tu atención.</p>
+
+            <form id="formAgendar" class="form-card">
+                <div class="grupo-form">
+                    <label for="especialidad">Especialidad Médica:</label>
+                    <select id="especialidad" name="especialidad" required>
+                        <option value="">-- Selecciona una especialidad --</option>
+                        <option value="Medicina General">Medicina General</option>
+                        <option value="Pediatría">Pediatría</option>
+                        <option value="Ginecología">Ginecología</option>
+                        <option value="Traumatología">Traumatología</option>
+                        <option value="Dermatología">Dermatología</option>
+                    </select>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="medico">Médico Tratante:</label>
+                    <select id="medico" name="medico" required disabled>
+                        <option value="">-- Selecciona primero una especialidad --</option>
+                    </select>
+                </div>
+
+                <div class="grupo-form-doble">
+                    <div class="grupo-form">
+                        <label for="fecha">Fecha de la Cita:</label>
+                        <input type="date" id="fecha" name="fecha" required>
+                    </div>
+
+                    <div class="grupo-form">
+                        <label for="hora">Hora de Atención:</label>
+                        <input type="time" id="hora" name="hora" min="08:00" max="19:00" required>
+                    </div>
+                </div>
+
+                <div class="grupo-form">
+                    <label for="observaciones">Motivo de la consulta / Observaciones:</label>
+                    <textarea id="observaciones" name="observaciones" rows="3" placeholder="Escribe brevemente el motivo de tu consulta..."></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">Confirmar y Agendar Cita</button>
+            </form>
+        </section>
+    </main>
+
+    <script>
+        const medicosPorEspecialidad = {
+            "Medicina General": ["Dra. María Pérez"],
+            "Pediatría": ["Dr. Juan López"],
+            "Ginecología": ["Dra. Ana González"],
+            "Traumatología": ["Dr. Carlos Soto"],
+            "Dermatología": ["Dra. Elena Rojas"]
+        };
+
+        const especialidadSelect = document.getElementById('especialidad');
+        const medicoSelect = document.getElementById('medico');
+        const formAgendar = document.getElementById('formAgendar');
+
+        const hoy = new Date().toISOString().split('T')[0];
+        document.getElementById('fecha').min = hoy;
+
+        especialidadSelect.addEventListener('change', function() {
+            const esp = this.value;
+            medicoSelect.innerHTML = '<option value="">-- Selecciona un médico --</option>';
+
+            if (esp && medicosPorEspecialidad[esp]) {
+                medicosPorEspecialidad[esp].forEach(medico => {
+                    const opt = document.createElement('option');
+                    opt.value = medico;
+                    opt.textContent = medico;
+                    medicoSelect.appendChild(opt);
+                });
+                medicoSelect.disabled = false;
+            } else {
+                medicoSelect.innerHTML = '<option value="">-- Selecciona primero una especialidad --</option>';
+                medicoSelect.disabled = true;
+            }
+        });
+
+
+        formAgendar.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const nuevaCita = {
+                id: 'ST-' + Math.floor(100000 + Math.random() * 900000),
+                especialidad: document.getElementById('especialidad').value,
+                medico: document.getElementById('medico').value,
+                fecha: document.getElementById('fecha').value,
+                hora: document.getElementById('hora').value,
+                observaciones: document.getElementById('observaciones').value || 'Sin observaciones',
+                estado: 'Confirmada'
+            };
+
+     
+            localStorage.setItem('citaRegistrada', JSON.stringify(nuevaCita));
+
+            alert('¡Cita agendada con éxito!');
+            window.location.href = 'cita_medica.html';
+        });
+    </script>
+</body>
+</html>

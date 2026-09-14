@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SaludTotal - Mis Citas Médicas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  
+    <header class="header-celeste">
+        <div class="logo-contenedor">
+            <img src="./img/logo.jpg" alt="Logo" class="logo-img">
+            <span class="logo-texto">SaludTotal</span>
+        </div>
+        <nav class="nav-principal">
+            <a href="index.html">Inicio</a>
+            <a href="registro.html">Registro</a>
+            <a href="cita_medica.html">Cita Médica</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+        <div class="acciones-header">
+            <a href="inicio_sesion.html" class="btn-login">Iniciar sesión</a>
+        </div>
+    </header>
+
+
+    <main class="contenedor-principal">
+        <section class="citas-seccion">
+            <h2>Detalle de tu Cita Médica</h2>
+            <p>Consulta el estado y los datos de tu reserva.</p>
+
+            <div id="contenedorCita" class="cita-card">
+          
+            </div>
+
+            <div class="acciones-citas">
+                <a href="agendar_cita.html" class="btn-submit">Agendar Nueva Cita</a>
+            </div>
+        </section>
+    </main>
+
+
+    <script>
+        function cargarCita() {
+            const contenedor = document.getElementById('contenedorCita');
+            const citaData = localStorage.getItem('citaRegistrada');
+
+            if (!citaData) {
+                contenedor.innerHTML = `
+                    <div class="sin-citas">
+                        <h3>No tienes ninguna cita agendada actualmente.</h3>
+                        <p>Haz clic en el botón de abajo para reservar tu hora médica.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const cita = JSON.parse(citaData);
+
+            contenedor.innerHTML = `
+                <div class="header-cita-card">
+                    <span class="codigo-cita">Código: <strong>${cita.id}</strong></span>
+                    <span class="badge-estado ${cita.estado === 'Confirmada' ? 'estado-activa' : 'estado-cancelada'}">${cita.estado}</span>
+                </div>
+                <div class="cuerpo-cita-card">
+                    <p><strong>Especialidad:</strong> ${cita.especialidad}</p>
+                    <p><strong>Profesional:</strong> ${cita.medico}</p>
+                    <p><strong>Fecha:</strong> ${cita.fecha}</p>
+                    <p><strong>Hora:</strong> ${cita.hora} hrs</p>
+                    <p><strong>Motivo:</strong> ${cita.observaciones}</p>
+                </div>
+                ${cita.estado === 'Confirmada' ? `
+                    <div class="footer-cita-card">
+                        <button onclick="cancelarCita()" class="btn-cancelar">Cancelar Cita</button>
+                    </div>
+                ` : ''}
+            `;
+        }
+
+        function cancelarCita() {
+            if (confirm('¿Estás seguro de que deseas cancelar esta cita médica?')) {
+                localStorage.removeItem('citaRegistrada');
+                alert('La cita ha sido cancelada.');
+                cargarCita();
+            }
+        }
+
+       
+        document.addEventListener('DOMContentLoaded', cargarCita);
+    </script>
+</body>
+</html>

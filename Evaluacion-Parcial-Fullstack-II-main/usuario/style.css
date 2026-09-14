@@ -1,0 +1,830 @@
+/* =========================================
+   1. CONFIGURACIÓN BASE
+========================================= */
+/* Aplica a toda la página: quita márgenes y define color de fondo */
+body { 
+    margin: 0; /* Borra el espacio blanco que los navegadores ponen por defecto */
+    font-family: Arial, sans-serif; /* Define el tipo de letra clásico */
+    background-color: #f4f4f4; /* Un gris muy claro para el fondo de toda la página */
+}
+
+/* =========================================
+   2. ENCABEZADO (Header Celeste)
+========================================= */
+.header-celeste {
+    display: flex; /* Activa Flexbox: pone los elementos en una fila horizontal */
+    justify-content: space-between; /* Empuja los elementos a los extremos izquierdo y derecho */
+    align-items: center; /* Centra los elementos verticalmente */
+    background-color: #e0f7fa; /* AQUÍ: El color celeste tipo clínica */
+    padding: 15px 40px; /* 15px de espacio interno arriba/abajo y 40px a los lados */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1); /* Crea una sombra suave debajo del encabezado */
+}
+
+/* Agrupa el logo y el texto en la parte izquierda */
+.logo-contenedor {
+    display: flex; 
+    align-items: center; /* Alinea la foto y el texto en el centro */
+    gap: 15px; /* Crea un espacio de 15px entre la imagen y el texto */
+}
+
+/* Tamaño de la imagen del logo */
+.logo-img { height: 45px; width: auto; } /* Fija la altura, el ancho se ajusta solo */
+
+/* Estilo del nombre de la tienda */
+.logo-texto { 
+    font-size: 1.6rem; /* Tamaño de la letra */
+    font-weight: bold; /* Letras gruesas (negrita) */
+    color: #002b49; /* Azul oscuro elegante */
+}
+
+/* Estilo para los enlaces de navegación del centro */
+.nav-principal a { 
+    margin: 0 15px; /* Separa los enlaces 15px entre sí */
+    text-decoration: none; /* Quita la línea de subrayado de los links */
+    color: #333; /* Texto gris oscuro */
+    font-weight: bold; 
+}
+.nav-principal a:hover { color: #0070d1; } /* Se vuelve azul al pasar el mouse */
+
+/* Agrupa la lupa y el botón de inicio de sesión a la derecha */
+.acciones-header {
+    display: flex; 
+    align-items: center; 
+    gap: 20px; /* Separación entre la lupa y el botón */
+}
+
+/* Botón azul principal de Iniciar Sesión */
+.btn-login {
+    background-color: #0070d1; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px 25px; /* Engorda el botón con espacio interno */
+    border-radius: 25px; /* Bordes muy redondeados (tipo píldora) */
+    text-decoration: none; /* Quita el subrayado */
+    font-weight: bold;
+}
+
+/* =========================================
+   3. ESTRUCTURA CENTRAL (Contenedor principal)
+========================================= */
+.contenedor-principal {
+    max-width: 1300px; /* Evita que el contenido se estire infinito en pantallas gigantes */
+    margin: 0 auto; /* Centra el contenedor en medio de la pantalla */
+    padding: 40px 20px; /* Espacio arriba/abajo (40px) y a los lados (20px) */
+}
+
+/* =========================================
+   4. IMAGEN CENTRAL (Banner)
+========================================= */
+.banner-central {
+    /* Aquí pones tu imagen de fondo real. Por ahora uso un gris oscuro de prueba */
+    background-image: url('./img/fondo-1.jpg'); 
+    background-color: #333; /* Color de respaldo si la imagen falla */
+    background-size: cover; /* Hace que la imagen cubra toda la caja */
+    background-position: center; /* Centra la imagen */
+    border-radius: 15px; /* Redondea las esquinas del banner gigante */
+    position: relative; /* CRÍTICO: Necesario para ponerle una capa oscura encima */
+    display: flex; /* Activa Flexbox */
+    align-items: center; /* Centra verticalmente los elementos internos */
+    padding: 50px; /* Espaciado interno generoso */
+    margin-bottom: 40px; /* Empuja las cajas de abajo (Grilla) 40px hacia abajo */
+}
+
+/* Capa oscura semitransparente para asegurar que se lean los textos blancos */
+.banner-central::before {
+    content: ""; /* Obligatorio para crear elementos invisibles en CSS */
+    position: absolute; /* Saca la capa del flujo y la hace flotar */
+    top: 0; left: 0; width: 100%; height: 100%; /* Cubre el 100% de la imagen */
+    background: rgba(0,0,0,0.6); /* Color negro al 60% de transparencia */
+    border-radius: 15px; /* Hereda las esquinas redondas */
+    z-index: 1; /* Pone esta capa en el nivel 1 (sobre la foto) */
+}
+
+/* Caja que agrupa los textos y la carátula, protegiéndolos de la oscuridad */
+.banner-contenido {
+    position: relative; 
+    z-index: 2; /* Nivel 2 (Queda por encima de la capa oscura para verse bien) */
+    width: 100%;
+    display: flex; /* Pone los textos a un lado y la carátula al otro */
+    justify-content: space-between; /* Los separa hacia los bordes */
+    align-items: center;
+    gap: 40px;
+}
+
+/* Diseño de las letras blancas */
+.banner-textos { 
+    flex: 1; /* Permite que la caja de texto crezca ocupando el espacio disponible */
+    color: white; 
+    text-shadow: 2px 2px 5px rgba(0,0,0,0.8); /* Crea sombra en las letras */
+}
+.banner-textos h2 { font-size: 3.5rem; margin-top: 0; margin-bottom: 10px; }
+.banner-textos p { font-size: 1.1rem; line-height: 1.6; max-width: 600px; }
+.precio-destacado { font-size: 1.8rem; font-weight: bold; color: #ffcc00; } /* Amarillo oro */
+
+/* Botón de reservar ahora (Naranja) */
+.btn-reservar { 
+    background-color: #d13600; 
+    color: white; 
+    padding: 12px 30px; 
+    border: none; 
+    border-radius: 25px; 
+    font-weight: bold; 
+    font-size: 1.1rem; 
+    cursor: pointer; 
+}
+
+/* Imagen física de la derecha  */
+.banner-caratula {
+    width: 250px; /* Ancho fijo para la caja */
+    border-radius: 8px; /* Bordes ligeramente curvos */
+    border: 3px solid white; /* Marco blanco tipo foto */
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.8); /* Sombra 3D pronunciada */
+}
+
+/* =========================================
+   5. LAS CAJAS PEQUEÑAS ABAJO (Grilla)
+========================================= */
+.grilla-inferior {
+    display: grid; /* Activa la cuadrícula (Grid CSS) */
+    grid-template-columns: repeat(5, 1fr); /* Crea exactamente 5 columnas del mismo tamaño */
+    gap: 25px; /* Espacio de separación entre las 5 cajas */
+}
+
+/* Diseño individual de cada una de las 5 tarjetas */
+.tarjeta-pequena {
+    background-color: white; /* Fondo blanco */
+    border-radius: 10px; /* Esquinas redondas */
+    padding: 15px; /* Espacio interno para que no se peguen a los bordes */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05); /* Sombra súper suave */
+    transition: transform 0.3s; /* Prepara la tarjeta para animación al pasar el mouse */
+}
+
+/* Pequeño salto hacia arriba cuando pasas el mouse por una tarjeta */
+.tarjeta-pequena:hover {
+    transform: translateY(-5px);
+}
+
+/* =========================================
+   DISEÑO PARA LA IMAGEN REAL DE LA TARJETA
+========================================= */
+.tarjeta-img {
+    width: 100%; /* Obliga a la imagen a expandirse de lado a lado dentro de la tarjeta blanca */
+    height: 180px; /* Fija la altura exacta para que todas las fotos queden perfectamente parejas */    
+    /* CRÍTICO: object-fit cover hace magia. Recorta la foto automáticamente para que llene el espacio (100% x 180px) sin que se deforme, se aplaste o se estire */
+    object-fit: cover;     
+    border-radius: 5px; /* Suaviza las 4 puntas de la foto haciéndolas un poco redondas */
+    margin-bottom: 15px; /* Crea un espacio hacia abajo para separar la foto del título que le sigue */
+}
+
+/* Estilos de los textos dentro de las tarjetas */
+.tarjeta-titulo { 
+    font-size: 1.1rem; 
+    margin: 0 0 10px 0; 
+    color: #333; 
+}
+.tarjeta-detalles { 
+    display: flex; 
+    justify-content: space-between; /* Separa los atributos a la izq y precio a la der */
+    font-size: 0.8rem; 
+    color: #666; 
+}
+.tarjeta-precio { 
+    font-weight: bold; 
+    color: #000; 
+}
+/*
+==========================
+REGISTRO
+==========================
+
+
+*/
+
+
+/*  ESTILOS GENERALES DEL REGISTRO  */
+.bodyregistro {
+    font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background-color: #ffffff; 
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 40px 15px;
+}
+
+
+/*  CONTENEDOR DEL FORMULARIO  */
+.formularioregistroborde {
+    background-color: #c1cfd6;
+    max-width: 850px;
+    width: 100%;
+    padding: 45px;
+    border-radius: 30px; /* Bordes mucho más circulares/redondeados */
+    box-shadow: 0 10px 30px rgba(0, 58, 82, 0.1); 
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+
+/* TÍTULO  */
+.tituloregistro {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #003a52;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+
+/*  CONTENEDOR DE CADA CAMPO */
+.camporegistro {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/*  ETIQUETAS  */
+.camporegistro label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #2b4553; 
+}
+
+
+/* INPUTS Y SELECTS  */
+.camporegistro input,
+.camporegistro select {
+    padding: 12px 16px;
+    border: 1px solid #cce0eb; 
+    border-radius: 12px; /* Bordes redondeados en las cajitas de texto también */
+    font-size: 14px;
+    font-family: inherit;
+    color: #2d3748;
+    background-color: #ffffff; 
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+
+.camporegistro input:focus,
+.camporegistro select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2);
+}
+
+
+/*  CHECKBOXES */
+.campo-checkbox {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+
+.campo-checkbox label {
+    font-size: 14px;
+    color: #2b4553;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+
+.campo-checkbox input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: #e04a00;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+
+/* BOTÓN DE ENVIAR  */
+.enviar {
+    grid-column: 1 / -1;
+    background-color: #e04a00;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.1s;
+    margin-top: 20px;
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+
+.enviar:hover {
+    background-color: #bf3f00;
+}
+
+
+.enviar:active {
+    transform: scale(0.97);
+}
+
+
+/* Clases para las validaciones de error */
+.input-error {
+    border: 2px solid red !important; /* Borde rojo */
+    background-color: #ffe6e6; /* Fondo un poco rojizo opcional */
+}
+
+.texto-error {
+    color: red;
+    font-size: 13px;
+    margin-top: 2px;
+    display: none; /* Oculto por defecto */
+}
+
+/* Cuando le agreguemos esta clase con JS, el texto se mostrará */
+.texto-error.activo {
+    display: block; 
+}
+
+
+/*
+=================
+LOGIN
+=================
+*/
+
+/* Ajustes para centrar la pantalla de Login */
+.bodylogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Tarjeta de login en una sola columna vertical */
+.formulariologin {
+    grid-template-columns: 1fr !important; /* Fuerza 1 sola columna */
+    max-width: 400px;                      /* Ancho proporcional para login */
+    width: 100%;
+    margin: 20px;
+}
+
+.formulariologin .tituloregistro {
+    grid-column: span 1;
+    text-align: center;
+}
+
+/* Estilo unificado para los enlaces de navegación entre pantallas */
+.enlace-navegacion {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    grid-column: span 1;
+}
+
+.enlace-navegacion a {
+    color: #0056b3;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.enlace-navegacion a:hover {
+    text-decoration: underline;
+}
+
+.boton-volver-inicio {
+    position: fixed;
+    top: 25px;
+    left: 25px;
+    display: inline-flex;
+    align-items: center;
+    color: #333;
+    text-decoration: none;
+    font-family: sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    background-color: #ffffff;
+    padding: 10px 18px;
+    border-radius: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+.boton-volver-inicio:hover {
+    color: #0056b3;
+    transform: translateX(-3px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* 
+================
+NOSOTROS
+================
+
+*/
+
+/* Contenedor general para páginas informativas */
+.container-pagina {
+    max-width: 900px;
+    margin: 80px auto 40px auto;
+    padding: 0 20px;
+    font-family: sans-serif;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.encabezado-seccion h1 {
+    color: #1e2a3a;
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.encabezado-seccion p {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+/* Tarjetas de contenido */
+.tarjeta-info {
+    background-color: #ffffff;
+    padding: 25px 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    margin-bottom: 25px;
+}
+
+.tarjeta-info h2 {
+    color: #0056b3;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #eef2f7;
+    padding-bottom: 8px;
+}
+
+.tarjeta-info p {
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Disposición en 2 columnas */
+.grid-dos-columnas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .grid-dos-columnas {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Lista estilizada de especialidades */
+.lista-especialidades {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+}
+
+.lista-especialidades li {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-left: 4px solid #0056b3;
+    margin-bottom: 8px;
+    border-radius: 0 6px 6px 0;
+}
+
+/* Responsive Video Container */
+.contenedor-video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    border-radius: 8px;
+}
+
+.contenedor-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+/* Footer Informativo */
+.footer-informativo {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #d0d7e2;
+    color: #4a5a6e;
+    font-size: 0.9rem;
+}
+
+/* 
+===============
+CONTACTO
+===============
+*/
+
+/* Estilos para la sección de Contacto */
+.formulario-contacto {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 600px;
+    margin: 1.5rem 0;
+}
+
+.campocontacto {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.campocontacto label {
+    font-weight: 600;
+    color: #1e293b;
+    font-size: 0.95rem;
+}
+
+.campocontacto input,
+.campocontacto select,
+.campocontacto textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: inherit;
+    box-sizing: border-box;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.campocontacto input:focus,
+.campocontacto select:focus,
+.campocontacto textarea:focus {
+    outline: none;
+    border-color: #0284c7;
+    box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.2);
+}
+
+.campocontacto textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.boton-enviar {
+    background-color: #0284c7;
+    color: #ffffff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    align-self: flex-start;
+}
+
+.boton-enviar:hover {
+    background-color: #0369a1;
+}
+
+.headercontacto {
+    background-color: #0284c7;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.headercontacto h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.headercontacto nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.headercontacto nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.2s;
+}
+
+.headercontacto nav ul li a:hover {
+    color: #bae6fd;
+}
+
+/* ADAPTACIONES PARA TABLETS Y CELULARES */
+
+/* --- TABLETS (hasta 992px) --- */
+@media (max-width: 992px) {
+    /* La grilla del index pasa de 5 a 3 columnas */
+    .grilla-inferior {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+
+/* --- CELULARES (hasta 768px) --- */
+@media (max-width: 768px) {
+    
+    /* 1. Grilla principal a 1 columna (Index) */
+    .grilla-inferior {
+        grid-template-columns: 1fr; 
+    }
+
+    /* 2. Formulario de registro a 1 columna */
+    .formularioregistroborde {
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* 1 sola columna */
+        width: 92% !important; /* Deja un pequeño margen a los lados */
+        padding: 25px 20px !important;
+        margin: 15px auto !important;
+        box-sizing: border-box !important;
+    }
+
+    .camporegistro input,
+    .camporegistro select {
+        width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    .enlace-navegacion {
+        grid-column: 1 / -1 !important; 
+        text-align: center;
+    }
+
+    /* 3. El banner del index se apila verticalmente */
+    .banner-contenido {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+    .banner-textos h2 { font-size: 2.2rem; }
+    .banner-caratula { width: 180px; } 
+
+    /* 4. Adaptación de ambos Headers (Index y Contacto) */
+    .header-celeste, .headercontacto {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+        text-align: center;
+    }
+    .nav-principal, .headercontacto nav ul {
+        flex-wrap: wrap; 
+        justify-content: center;
+        gap: 10px;
+    }
+    .nav-principal a { margin: 0; }
+}
+
+/* --- FORMULARIOS Y CITAS MÉDICAS --- */
+.formulario-seccion, .citas-seccion {
+    max-width: 650px;
+    margin: 30px auto;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.form-card, .cita-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.grupo-form {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.grupo-form-doble {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.grupo-form label {
+    font-weight: 600;
+    color: #333;
+    font-size: 0.95rem;
+}
+
+.grupo-form input, 
+.grupo-form select, 
+.grupo-form textarea {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.grupo-form input:focus, 
+.grupo-form select:focus, 
+.grupo-form textarea:focus {
+    border-color: #0088cc;
+}
+
+.btn-submit {
+    background-color: #0088cc;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: background 0.3s;
+}
+
+.btn-submit:hover {
+    background-color: #006699;
+}
+
+/* CARDS DE CITA REGISTRADA */
+.header-cita-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #eef2f5;
+    padding-bottom: 10px;
+}
+
+.badge-estado {
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: bold;
+}
+
+.estado-activa {
+    background-color: #e3f9e5;
+    color: #1f7a28;
+}
+
+.cuerpo-cita-card p {
+    margin: 8px 0;
+    font-size: 1rem;
+    color: #444;
+}
+
+.btn-cancelar {
+    background-color: #d9534f;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-cancelar:hover {
+    background-color: #c9302c;
+}
+
+.sin-citas {
+    text-align: center;
+    padding: 30px 10px;
+    color: #666;
+}
+
+.acciones-citas {
+    margin-top: 20px;
+    text-align: center;
+}

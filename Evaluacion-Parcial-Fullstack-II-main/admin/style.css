@@ -1,0 +1,653 @@
+/* FONDO Y CENTRADO DE LA PÁGINA */
+.body-admin-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #ffffff; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/*  LA CAJA CELESTE/GRIS */
+.tarjeta-login-admin {
+    background-color: #cbd8e1;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 50px;
+    border-radius: 25px; /* Bordes bien redondos */
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.titulo-admin {
+    text-align: center;
+    color: #003a55;
+    font-size: 24px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 30px;
+}
+
+/* LOS CAMPOS */
+.grupo-input-admin {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+.grupo-input-admin label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e3a5f;
+    margin-bottom: 8px;
+}
+
+.grupo-input-admin input {
+    padding: 12px 15px;
+    border: none; 
+    border-radius: 10px; /* Bordes redondeados del input */
+    font-size: 14px;
+    font-family: inherit;
+    color: #333;
+    outline: none;
+}
+
+.grupo-input-admin input:focus {
+    box-shadow: 0 0 0 2px #e04a00; 
+}
+
+/* EL BOTÓN NARANJA */
+.contenedor-boton {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.btn-ingresar-admin {
+    background-color: #e65100; 
+    color: white;
+    border: none;
+    padding: 12px 40px; /* Alargado */
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 30px; /* Forma de píldora */
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-ingresar-admin:hover {
+    background-color: #cc4800;
+}
+
+.btn-ingresar-admin:active {
+    transform: scale(0.95);
+}
+
+/* Clases para el JS (Validaciones) */
+.input-error {
+    border: 2px solid red !important;
+}
+
+.texto-error {
+    color: red;
+    font-size: 12px;
+    font-weight: bold;
+    margin-top: 5px;
+    display: none;
+}
+
+.texto-error.activo {
+    display: block;
+}
+
+
+/* INICIO ADMIN */
+
+/* Reinicio exclusivo para el modulo de administracion */
+.body-admin,
+.body-admin * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.body-admin {
+    background-color: #f5f7fa;
+    color: #1e2a3a;
+}
+
+/* Navegacion Superior Horizontal (Barra mas grande) */
+.admin-navbar {
+    background-color: #e6f3f7;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px; /* Incrementado para dar mas altura */
+    border-bottom: 1px solid #d0e5ec;
+}
+
+.admin-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-logo {
+    height: 45px; /* Logo mas grande para acompanar la barra */
+    width: auto;
+    object-fit: contain;
+}
+
+.admin-brand h2 {
+    color: #1e2a3a;
+    font-size: 1.6rem; /* Texto de marca ligeramente mas grande */
+    font-weight: 700;
+}
+
+.admin-nav-horizontal ul {
+    display: flex;
+    list-style: none;
+    gap: 24px;
+}
+
+.admin-nav-horizontal ul li a {
+    text-decoration: none;
+    color: #1e2a3a;
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 10px 20px; /* Mayor area de click */
+    border-radius: 20px;
+    transition: all 0.2s ease;
+}
+
+.admin-nav-horizontal ul li a:hover {
+    color: #0066cc;
+    background-color: #d8edf3;
+}
+
+.admin-nav-horizontal ul li a.activo {
+    color: #0066cc;
+}
+
+.btn-cerrar-sesion {
+    background-color: #0066cc;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 10px 28px; /* Boton mas amplio */
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-cerrar-sesion:hover {
+    background-color: #004c99;
+}
+
+/* Contenedor Principal */
+.admin-container {
+    max-width: 1200px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+/* Banner Principal */
+.admin-hero {
+    background: linear-gradient(135deg, #1e2a3a 0%, #2c3e50 100%);
+    color: #ffffff;
+    padding: 45px 40px;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.hero-text h1 {
+    font-size: 2rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.hero-text p {
+    font-size: 1.05rem;
+    color: #d0d7e2;
+    margin-bottom: 20px;
+    max-width: 650px;
+    line-height: 1.5;
+}
+
+.btn-hero {
+    display: inline-block;
+    background-color: #d9381e;
+    color: #ffffff;
+    padding: 10px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease;
+}
+
+.btn-hero:hover {
+    background-color: #b82d16;
+}
+
+/* Grilla de Tarjetas */
+.admin-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 20px;
+}
+
+.card-item {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    border: 1px solid #eef2f7;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card-item h3 {
+    font-size: 1.1rem;
+    color: #1e2a3a;
+    margin-bottom: 6px;
+    font-weight: 700;
+}
+
+.medico-nombre {
+    font-size: 0.9rem;
+    color: #5a6a7e;
+    margin-bottom: 15px;
+}
+
+.card-detalles {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    font-size: 0.82rem;
+    color: #7a8a9e;
+    border-top: 1px solid #f0f3f6;
+    padding-top: 10px;
+}
+
+/* CONTACTO PACIENTE DOCTOR*/
+
+.body-contacto,
+.body-contacto * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.body-contacto {
+    background-color: #f4f7f9;
+    color: #1e2a3a;
+}
+
+/* Boton Volver (Píldora flotante separada a la izquierda) */
+.contacto-nav-outer {
+    padding: 25px 0 15px 40px;
+    width: 100%;
+}
+
+.contacto-btn-volver {
+    display: inline-flex;
+    align-items: center;
+    background-color: #ffffff;
+    color: #1e2a3a;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.88rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: all 0.2s ease;
+}
+
+.contacto-btn-volver:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    color: #0066cc;
+    border-color: #0066cc;
+}
+
+/* Contenedor Principal */
+.contacto-container {
+    max-width: 1350px;
+    margin: 0 auto 40px auto;
+    padding: 0 20px;
+}
+
+.contacto-card-section {
+    background-color: #ffffff;
+    border-radius: 16px;
+    padding: 35px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.03);
+    border: 1px solid #eef2f6;
+}
+
+.contacto-header h1 {
+    font-size: 1.7rem;
+    color: #0f172a;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.contacto-header p {
+    color: #64748b;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Filtros */
+.contacto-filtros {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.contacto-input-buscar, 
+.contacto-select-filtro {
+    padding: 9px 7px;
+    border: 1px solid #cbd5e1;
+    border-radius: 18px;
+    font-size: 0.9rem;
+    outline: none;
+    background-color: #f8fafc;
+    color: #334155;
+    transition: all 0.2s ease;
+}
+
+.contacto-input-buscar {
+    flex-grow: 1;
+}
+
+.contacto-input-buscar:focus, 
+.contacto-select-filtro:focus {
+    border-color: #0066cc;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.1);
+}
+
+/* Tabla */
+.contacto-table-container {
+    overflow-x: auto;
+}
+
+.contacto-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 0.9rem;
+}
+
+.contacto-table th {
+    background-color: #f1f5f9;
+    color: #475569;
+    padding: 14px 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border-top: 1px solid #e2e8f0;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.contacto-table th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-left: 1px solid #e2e8f0;
+}
+
+.contacto-table th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-right: 1px solid #e2e8f0;
+}
+
+.contacto-table td {
+    padding: 16px;
+    border-bottom: 1px solid #f1f5f9;
+    color: #334155;
+    vertical-align: middle;
+}
+
+.contacto-table tbody tr:hover td {
+    background-color: #f8fafc;
+}
+
+/* Estilos internos de la tabla */
+.contacto-id-tag {
+    background-color: #e2e8f0;
+    color: #475569;
+    font-weight: 700;
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+.contacto-col-fecha {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+.contacto-persona-nombre {
+    color: #0f172a;
+}
+
+.contacto-doctor-nombre {
+    color: #334155;
+    font-weight: 500;
+}
+
+.contacto-especialidad-tag {
+    background-color: #f0f9ff;
+    color: #0284c7;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.contacto-motivo-texto {
+    color: #475569;
+    max-width: 220px;
+}
+
+/* Badges con punto indicador visible */
+.contacto-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.contacto-dot {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+}
+
+.contacto-badge-pendiente {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+.contacto-badge-pendiente .contacto-dot {
+    background-color: #f59e0b;
+}
+
+.contacto-badge-respondido {
+    background-color: #dcfce7;
+    color: #166534;
+}
+.contacto-badge-respondido .contacto-dot {
+    background-color: #22c55e;
+}
+
+/* Botones de la tabla (Evita deformación del texto) */
+.contacto-text-center {
+    text-align: center;
+}
+
+.contacto-btn-tabla {
+    border: none;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+    display: inline-block;
+    transition: all 0.2s ease;
+}
+
+.contacto-btn-primary {
+    background-color: #0066cc;
+    color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 102, 204, 0.2);
+}
+
+.contacto-btn-primary:hover {
+    background-color: #004c99;
+    transform: translateY(-1px);
+}
+
+.contacto-btn-secondary {
+    background-color: #f1f5f9;
+    color: #475569;
+}
+
+.contacto-btn-secondary:hover {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+
+/* ==========================================================================
+   MEDIA QUERIES - DISEÑO RESPONSIVO VISTA ADMINISTRADOR
+   ========================================================================== */
+
+/* ===== TABLETS Y PANTALLAS MEDIANAS (Max-width: 992px) ===== */
+@media (max-width: 992px) {
+    /* Ajustes Panel Admin */
+    .admin-navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+        gap: 15px;
+    }
+
+    .admin-nav-horizontal ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .admin-nav-horizontal ul li a {
+        padding: 8px 15px;
+        font-size: 0.95rem;
+    }
+
+    .admin-hero {
+        padding: 30px 20px;
+        text-align: center;
+    }
+    
+    .hero-text p {
+        margin: 0 auto 20px auto;
+    }
+
+    /* Ajustes Contacto Paciente / Doctor */
+    .contacto-container {
+        padding: 0 15px;
+    }
+
+    .contacto-filtros {
+        flex-direction: column;
+    }
+    
+    .contacto-select-filtro {
+        width: 100%;
+    }
+}
+
+/* ===== CELULARES Y PANTALLAS PEQUEÑAS (Max-width: 768px) ===== */
+@media (max-width: 768px) {
+    
+    /* Login Administrador */
+    .tarjeta-login-admin {
+        margin: 20px;
+        padding: 30px 25px;
+    }
+
+    /* Panel Principal Admin */
+    .admin-brand h2 {
+        font-size: 1.4rem;
+    }
+
+    .brand-logo {
+        height: 35px;
+    }
+
+    .btn-cerrar-sesion {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .admin-nav-horizontal ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .admin-nav-horizontal ul li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .admin-nav-horizontal ul li a {
+        display: block;
+        width: 100%;
+    }
+
+    .hero-text h1 {
+        font-size: 1.6rem;
+    }
+
+    .admin-cards-grid {
+        grid-template-columns: 1fr; /* Una columna en celulares */
+    }
+
+    /* Contacto Paciente / Doctor - Adaptación de la Tabla */
+    .contacto-nav-outer {
+        padding: 15px 0 10px 15px;
+    }
+
+    .contacto-card-section {
+        padding: 20px 15px;
+    }
+
+    /* Estrategia de tabla responsiva (Scroll horizontal) */
+    .contacto-table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+        border: 1px solid #e2e8f0;
+        border-radius: 10px;
+    }
+
+    .contacto-table {
+        min-width: 800px; /* Fuerza el ancho para habilitar el scroll */
+    }
+
+}

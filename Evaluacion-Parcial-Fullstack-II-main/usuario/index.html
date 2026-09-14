@@ -1,0 +1,158 @@
+<!-- Declara que el documento es HTML5 -->
+<!DOCTYPE html>
+<!-- Define el idioma español para el navegador -->
+<html lang="es">
+<head>
+    <!-- Permite el uso de caracteres especiales como tildes y la 'ñ' -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título que se mostrará en la pestaña del navegador -->
+    <title>SaludTotal - Inicio</title>
+    <!-- Conecta este archivo con la hoja de estilos CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- =========================================
+         ENCABEZADO (Color Celeste Clínica)
+    ========================================= -->
+    <header class="header-celeste">
+        
+        <!-- Bloque Izquierdo: Logo y nombre de la tienda -->
+        <div class="logo-contenedor">
+            <!-- Llama a la imagen del logo -->
+            <img src="./img/logo.jpg" alt="Logo" class="logo-img">
+            <!-- Texto al lado del logo -->
+            <span class="logo-texto">SaludTotal</span>
+        </div>
+        
+        <!-- Bloque Central: Enlaces de navegación desplegables -->
+        <nav class="nav-principal">
+            <a href="index.html">Inicio ˅</a>
+            <a href="registro.html">Registro ˅</a>
+            <a href="cita_medica.html">Cita Medica ˅</a>
+            <a href="nosotros.html">Nosotros ˅</a>
+            <a href="contacto.html">Contacto ˅</a>
+        </nav>
+        
+        <!-- Bloque Derecho: Lupa y botón de Iniciar Sesión -->
+        <div class="acciones-header">
+            <!-- Botón azul redondeado -->
+            <a href="inicio_sesion.html" class="btn-login">Iniciar sesión</a>
+        </div>
+        
+    </header>
+
+    <!-- =========================================
+         CONTENIDO PRINCIPAL
+    ========================================= -->
+    <!-- Etiqueta semántica main para el contenido central de la página -->
+    <main class="contenedor-principal">
+        
+        <!-- 1. IMAGEN CENTRAL (Banner) -->
+        <section class="banner-central" id="banner-central">
+            
+            <!-- Caja que agrupa el contenido por encima del fondo oscuro -->
+            <div class="banner-contenido">
+                
+                <!-- Textos e información (Lado izquierdo) -->
+                <div class="banner-textos">
+                    <h2>¿Aún no tienes una cuenta?</h2>
+                    <p>Creeate una cuenta para agendar citas medicas a la hora que te acomode.</p>
+                    <p class="precio-destacado">Totalmente Gratis</p>
+                    <!-- Botón de acción naranja -->
+                    <button class="btn-reservar">Registro</button>
+                </div>
+                
+                <!-- Carátula física del VHS (Lado derecho) -->
+                <img src="./img/img-1.jpg" alt="Carátula" class="banner-caratula">
+                
+            </div>
+        </section>
+
+        <!-- 2. LAS OTRAS PEQUEÑAS ABAJO (Grilla de 4 columnas) -->
+        <section class="grilla-inferior">
+            
+            <!-- =========================================
+                 TARJETA 1
+            ========================================= -->
+            <article class="tarjeta-pequena">
+                
+                <!-- NUEVO: Etiqueta img para mostrar una foto real -->
+                <!-- src: Define la ruta de la foto. Cambia 'foto-servicio-1.jpg' por el nombre exacto de tu imagen en la carpeta img -->
+                <!-- alt: Texto descriptivo en caso de que la imagen no cargue -->
+                <!-- class: La clase CSS que le dará el tamaño y forma correcta -->
+                <img src="./img/med-gen.jpg" alt="medico General" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Medicina General</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dra. María Pérez - 20 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">08:00 - 17:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 2 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/pedia.jpg" alt="pediatra" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Pediatria</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dr. Juan López - 25 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">09:00 - 18:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 3 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/gine.jpg" alt="Ginecologia" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Ginecologia</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dra. Ana González - 30 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">08:00 - 16:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 4 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/trauma.jpg" alt="Traumatologia" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Traumatologia</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dr. Carlos Soto - 25 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">10:00 - 19:00</span>
+                </div>
+            </article>
+
+            <!-- TARJETA 5 -->
+            <article class="tarjeta-pequena">
+                <img src="./img/derma.jpg" alt="Dermatologia" class="tarjeta-img">                
+                <!-- Título del producto o servicio -->
+                <h3 class="tarjeta-titulo">Dermatologia</h3>                
+                <!-- Contenedor para alinear los detalles y el precio a los lados -->
+                <div class="tarjeta-detalles">
+                    <!-- Categoría o atributo del servicio -->
+                    <span>Dra. Elena Rojas - 20 min</span>
+                    <!-- Precio del servicio destacado -->
+                    <span class="tarjeta-precio">09:00 - 17:00</span>
+                </div>
+            </article>
+
+        </section>
+        
+    </main>
+
+</body>
+</html>
